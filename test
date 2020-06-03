@@ -87,3 +87,19 @@ export default function Oneview() {
         </div>
     )
 }
+
+===============
+
+export const REGION = [
+    {'site': 'WHEM', 'ub': 'WH'},
+    {'site': 'VANGUARD', 'ub': 'VH'},
+    {'site': 'APAC', 'ub': 'GL'},
+    {'site': 'GAM', 'ub': 'GP'},
+    {'site': 'USMT', 'ub': 'MT'},
+    {'site': 'BOSTON', 'ub': 'BT'}, 
+    {'site': 'UK', 'ub': 'C1'},
+    {'site': 'LUX', 'ub': 'LX'},
+    {'site': 'DUB', 'ub': 'DB'},
+    {'site': 'DAVINCI', 'ub': 'EM'},
+    {'site': 'SIMT', 'ub': 'SI'},
+]

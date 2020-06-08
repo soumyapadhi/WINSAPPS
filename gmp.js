@@ -7,12 +7,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import {REGION} from '../components/ui/REGION';
-import DashNew from "./dashboard";
+import DashNew from "./dashnew";
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
     formControl: {
         margin: theme.spacing(2),
-        minWidth: 150,
+        minWidth: 150
     },
     root:{
         flexGrow: 1,
@@ -26,6 +27,9 @@ const useStyles = makeStyles(theme => ({
 export default function Oneview() {
     const classes = useStyles();
 
+    // const x = "last updated on: " + document.lastModified;
+
+
     const [ub, setub] = useState(true);
 
     const [auto, setauto] = useState(300000);
@@ -38,6 +42,8 @@ export default function Oneview() {
         return region.ub == ub
     }
   );
+
+  let newarr = h1tag.map(a => a.site);
 
     const regionOptions = (
         <Select
@@ -55,8 +61,8 @@ export default function Oneview() {
 
     return (
             <div className={classes.root}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12}>
+                <Grid container spacing={3} direction="row">
+                    <Grid item xs={12} sm={6}>
                         <FormControl className={classes.formControl}>
                             <InputLabel id="region-label">Select Region</InputLabel>
                             { regionOptions }
@@ -76,13 +82,14 @@ export default function Oneview() {
                                 <MenuItem value={300000}>5 Minutes</MenuItem>
                             </Select>
                         </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>last modified</Grid>
                     </Grid>
-                </Grid>
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={4}>
                       <Paper className={classes.paper}>
                          <DashNew
-                         arr1={h1tag}
+                         arr1={newarr}
                          />
                       </Paper>
                     </Grid>

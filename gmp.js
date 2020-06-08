@@ -61,30 +61,35 @@ export default function Oneview() {
 
     return (
             <div className={classes.root}>
-                <Grid container spacing={3} direction="row">
-                    <Grid item xs={12} sm={6}>
-                        <FormControl className={classes.formControl}>
-                            <InputLabel id="region-label">Select Region</InputLabel>
-                            { regionOptions }
-                        </FormControl>
-                        <FormControl className={classes.formControl}>
-                            <InputLabel id="refresh-label">Auto Refresh</InputLabel>
-                            <Select
-                            labelId="refresh-label"
-                            value={auto}
-                            onChange={e => setauto(e.target.value)}
-                            >
-                                <MenuItem value={30000}>30 Seconds</MenuItem>
-                                <MenuItem value={60000}>1 Minute</MenuItem>
-                                <MenuItem value={120000}>2 Minutes</MenuItem>
-                                <MenuItem value={180000}>3 Minutes</MenuItem>
-                                <MenuItem value={240000}>4 Minutes</MenuItem>
-                                <MenuItem value={300000}>5 Minutes</MenuItem>
-                            </Select>
-                        </FormControl>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>last modified</Grid>
-                    </Grid>
+              <Grid container spacing={3} direction="row">
+                <Grid container xs={12} sm={4}></Grid>
+                <Grid container justify="center" alignItems="center" xs={12} sm={4}>
+                   <Grid item>
+                    <h1>{newarr}</h1>
+                   </Grid>
+                  </Grid>
+                <Grid container xs={12} sm={4}>
+                      <FormControl className={classes.formControl}>
+                          <InputLabel id="region-label">Select Region</InputLabel>
+                          { regionOptions }
+                      </FormControl>
+                      <FormControl className={classes.formControl}>
+                          <InputLabel id="refresh-label">Auto Refresh</InputLabel>
+                          <Select
+                          labelId="refresh-label"
+                          value={auto}
+                          onChange={e => setauto(e.target.value)}
+                          >
+                              <MenuItem value={30000}>30 Seconds</MenuItem>
+                              <MenuItem value={60000}>1 Minute</MenuItem>
+                              <MenuItem value={120000}>2 Minutes</MenuItem>
+                              <MenuItem value={180000}>3 Minutes</MenuItem>
+                              <MenuItem value={240000}>4 Minutes</MenuItem>
+                              <MenuItem value={300000}>5 Minutes</MenuItem>
+                          </Select>
+                      </FormControl>
+                  </Grid>
+                  </Grid>
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={4}>
                       <Paper className={classes.paper}>
@@ -97,3 +102,4 @@ export default function Oneview() {
             </div>
         );
     }
+

@@ -1,0 +1,15 @@
+                    <FormControl>
+                        <Select
+                        autoWidth
+                        disableUnderline
+                        value={this.state.timer}
+                        onChange={this.timerChange}
+                        >
+                            <MenuItem dense value={30000}>Refresh in 30 secs</MenuItem>
+                            <MenuItem dense value={60000}>Refresh in 1 min</MenuItem>
+                            <MenuItem dense value={120000}>Refresh in 2 mins</MenuItem>
+                            <MenuItem dense value={180000}>Refresh in 3 mins</MenuItem>
+                            <MenuItem dense value={240000}>Refresh in 4 mins</MenuItem>
+                            <MenuItem dense value={300000}>Refresh in 5 mins</MenuItem>
+                        </Select>
+                    </FormControl>

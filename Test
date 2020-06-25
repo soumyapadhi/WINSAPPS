@@ -73,3 +73,7 @@ class DashNew extends React.Component {
 }
 
 export default DashNew;
+
+  <IconButton disableRipple className={classes.iconbutton} component={Link} to="/Home">
+               <DashboardOutlinedIcon />
+            </IconButton>

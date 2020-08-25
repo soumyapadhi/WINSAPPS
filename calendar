@@ -1,0 +1,78 @@
+import * as React from "react";
+import Paper from "@material-ui/core/Paper";
+import { ViewState } from "@devexpress/dx-react-scheduler";
+import {
+  Scheduler,
+  WeekView,
+  Appointments,
+  DateNavigator,
+  TodayButton,
+  Toolbar,
+  ViewSwitcher,
+  MonthView,
+  DayView,
+} from "@devexpress/dx-react-scheduler-material-ui";
+import { withStyles } from "@material-ui/core/styles";
+
+import { release } from "../assets/releases";
+import cal from "./ui/cal.css";
+
+const styles = (theme) => ({
+  root: {
+    flexGrow: 1,
+    lineHeight: 1,
+    height: "2px",
+  },
+});
+
+class Calendar extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: release,
+      currentViewName: "Month",
+      currentDate: new Date(),
+    };
+    this.currentViewNameChange = (currentViewName) => {
+      this.setState({ currentViewName });
+    };
+  }
+
+  render() {
+    const { data, currentViewName } = this.state;
+    const currentDate = new Date();
+    const { classes } = this.props;
+
+    return (
+      <div>
+        <Scheduler data={data} height={560} crossScrollingEnabled={true}>
+          <ViewState
+            defaultCurrentDate={currentDate}
+            currentViewName={currentViewName}
+            onCurrentViewNameChange={this.currentViewNameChange}
+          />
+
+          <WeekView id="cal1" startDayHour={10} endDayHour={19} />
+          <WeekView
+            name="work-week"
+            displayName="Work Week"
+            excludedDays={[0, 6]}
+            startDayHour={9}
+            endDayHour={19}
+          />
+          <MonthView />
+          <DayView />
+
+          <Toolbar />
+          <DateNavigator />
+          <TodayButton />
+          <ViewSwitcher />
+          <Appointments />
+        </Scheduler>
+      </div>
+    );
+  }
+}
+
+export default withStyles(styles)(Calendar);
